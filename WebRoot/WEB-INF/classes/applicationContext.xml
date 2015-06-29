@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+<!-- 定义数据源： -->
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+	<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/company"/>
+	<property name="user" value="root"/>
+	<property name="password" value="root"/>
+	<property name="maxPoolSize" value="100"></property>
+	<property name="minPoolSize" value="1"/>
+	<property name="initialPoolSize" value="1"/>
+<property name="maxIdleTime" value="30"/>
+  </bean>
+
+<!-- 定义Hibernate的SessionFactory： -->
+ <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"></property>
+	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+    <property name="mappingResources">
+    	<list>
+			<value>ftt/company/domain/Department.hbm.xml</value>
+			<value>ftt/company/domain/Employee.hbm.xml</value>
+		</list>
+   	</property> 
+  </bean>
+  
+  <!-- 定义dao -->
+  <bean id="employeeDao" class="ftt.company.dao.EmployeeDao">
+  		<property name="sessionFactory" ref="sessionFactory"></property>
+  </bean>
+  
+  <bean id="departmentDao" class="ftt.company.dao.DepartmentDao">
+  		<property name="sessionFactory" ref="sessionFactory"></property>
+  </bean>
+  
+  <!-- 定义service业务类 -->
+  <bean id="employeeService" class="ftt.company.service.EmployeeService">
+  		<property name="employeeDao" ref="employeeDao"></property>
+  </bean>
+  <bean id="departmentService" class="ftt.company.service.DepartmentService">
+  		<property name="departmentDao" ref="departmentDao"></property>
+  </bean>
+  
+  <!-- 定义action类 --> 
+  <bean id="employeeAction" class="ftt.company.action.EmployeeAction">
+  		<property name="employeeService" ref="employeeService"></property>
+  </bean>
+  <bean id="departmentAction" name="ftt.company.action.DepartmentAction">
+  		<property name="departmentService" ref="departmentService"></property>
+  </bean>
+</beans>
+
+
+
+
+
+
+
+
+
+

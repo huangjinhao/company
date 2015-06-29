@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ftt.company.domain.Employee" table="EMPLOYEE">
+       
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+      
+        <property name="lastName" type="string">
+            <column name="LAST_NAME" />
+        </property>
+      
+        <property name="email" type="string">
+            <column name="EMAIL" />
+        </property>
+       
+        <property name="birth" type="string">
+            <column name="BIRTH" />
+        </property>
+      
+        <property name="createTime" type="string">
+            <column name="CREAT_ETIME" />
+        </property>
+      	
+      	<!-- 映射单向 n-1 的关联关系 -->
+        <many-to-one name="department" class="ftt.company.domain.Department">
+            <column name="DEPARTMENT_ID" />
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping>
