@@ -23,36 +23,17 @@
 	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
     <property name="mappingResources">
     	<list>
-			<value>ftt/company/domain/Department.hbm.xml</value>
-			<value>ftt/company/domain/Employee.hbm.xml</value>
+			<value>hjh/company/domain/User.hbm.xml</value>
+			<value>hjh/company/domain/Role.hbm.xml</value>
+			<value>hjh/company/domain/Authority.hbm.xml</value>
 		</list>
    	</property> 
   </bean>
   
-  <!-- 定义dao -->
-  <bean id="employeeDao" class="ftt.company.dao.EmployeeDao">
-  		<property name="sessionFactory" ref="sessionFactory"></property>
+  <bean id="userDAOImpl" class="hjh.company.daoimpl.UserDAOImpl">
+       <property name="sessionFactory" ref="sessionFactory"></property>
   </bean>
-  
-  <bean id="departmentDao" class="ftt.company.dao.DepartmentDao">
-  		<property name="sessionFactory" ref="sessionFactory"></property>
-  </bean>
-  
-  <!-- 定义service业务类 -->
-  <bean id="employeeService" class="ftt.company.service.EmployeeService">
-  		<property name="employeeDao" ref="employeeDao"></property>
-  </bean>
-  <bean id="departmentService" class="ftt.company.service.DepartmentService">
-  		<property name="departmentDao" ref="departmentDao"></property>
-  </bean>
-  
-  <!-- 定义action类 --> 
-  <bean id="employeeAction" class="ftt.company.action.EmployeeAction">
-  		<property name="employeeService" ref="employeeService"></property>
-  </bean>
-  <bean id="departmentAction" name="ftt.company.action.DepartmentAction">
-  		<property name="departmentService" ref="departmentService"></property>
-  </bean>
+ 
 </beans>
 
 
