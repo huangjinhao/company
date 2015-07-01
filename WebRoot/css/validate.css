@@ -1,0 +1,29 @@
+#checkHP{
+			float: left;
+		}
+		
+		#checkCode { 
+			float:left; 
+			width:70px; 
+			height:15px; 
+			padding: 0px 10px; 
+			color:red; 
+			font-size:16px; 
+			font-family:Arial; 
+			font-style:italic; 
+			color:Red; 
+			border:0; 
+			padding:2px  0px; 
+			letter-spacing:0.5px; 
+			font-weight:bolder; 
+		}
+		
+		.refresh { 
+			font-size: 14px; 
+			color: red;
+		}
+		
+		.text { 
+			font-size: 16px; 
+			color: #F00;
+		}
