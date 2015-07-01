@@ -10,12 +10,12 @@
 
 		<property name="roleName" column="roleName" type="string"></property>
 
-        <set name="users" table="user_role" cascade="save-update" inverse="true" lazy="true">
+        <set  name="users" table="user_role" cascade="all" inverse="true" lazy="false">
             <key column="roleId"></key>
-            <many-to-many class="hjh.company.domain.User" column="userId"></many-to-many>
+            <many-to-many  class="hjh.company.domain.User" column="userId"></many-to-many>
         </set>
         
-        <set name="authorities" table="role_authority" cascade="all" inverse="true" lazy="true">
+        <set name="authorities" table="role_authority" cascade="all" inverse="true" lazy="false">
             <key column="roleId"></key>
             <many-to-many class="hjh.company.domain.Authority" column="authorityId"></many-to-many>
         </set>
