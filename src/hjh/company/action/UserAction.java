@@ -1,12 +1,12 @@
 package hjh.company.action;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import hjh.company.domain.Role;
 import hjh.company.domain.User;
 import hjh.company.service.UserService;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -19,9 +19,16 @@ public class UserAction extends ActionSupport {
 	private Map<String,Object> userMap = new HashMap<String,Object>();
 	
 	private String nextPage;
+	private String result;
 	
-	
-	
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
 	public String getNextPage() {
 		return nextPage;
 	}
@@ -203,10 +210,8 @@ public class UserAction extends ActionSupport {
 			userMap.put("queryByRoleStatus","0");
         	return ERROR;
         }
-        
 		userMap.put("queryAllStatus","1");
 		userMap.put("users",users);
-		System.out.println("queryall ==========="+users);
         return SUCCESS;
 	}
 	

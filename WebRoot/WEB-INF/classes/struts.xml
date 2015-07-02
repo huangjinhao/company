@@ -43,7 +43,7 @@
 		
 		<action name="queryAll" class="userAction" method="queryAll">
 			<result type="json">
-				<param name="root">userMap</param>
+				<param name="root">result</param>
 			</result>
 		</action>
 	</package>
