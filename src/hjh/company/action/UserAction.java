@@ -18,7 +18,18 @@ public class UserAction extends ActionSupport {
 	
 	private Map<String,Object> userMap = new HashMap<String,Object>();
 	
+	private String nextPage;
 	
+	
+	
+	public String getNextPage() {
+		return nextPage;
+	}
+
+	public void setNextPage(String nextPage) {
+		this.nextPage = nextPage;
+	}
+
 	public Map<String, Object> getUserMap() {
 		return userMap;
 	}
@@ -96,6 +107,7 @@ public class UserAction extends ActionSupport {
 		ac.getSession().put("loginUser",fromDBUser);
 		userMap.put("loginStatus","1");
         userMap.put("options", fromDBUser);
+        nextPage = "success";
 		return SUCCESS;
 	}
 	/**
