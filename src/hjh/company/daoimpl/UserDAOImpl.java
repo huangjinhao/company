@@ -23,7 +23,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	/**
-	 * ×¢²áÓÃ»§
+	 * ×¢ï¿½ï¿½ï¿½Ã»ï¿½
 	 */
 	@Override
 	public User create(User user) {
@@ -47,7 +47,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	/**
-	 * ¼ì²é×¢²áÓÃ»§ÊÇ·ñÒÑ¾­´æÔÚ£¬Èç¹û´æÔÚ£¬·µ»Øtrue£¬·ñÔòfalse£»
+	 * ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½falseï¿½ï¿½
 	 */
 	@Override
 	public boolean isUserDumplicate(String userId) {
@@ -69,7 +69,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	/**
-	 * ¸ù¾ÝÓÃ»§id²éÕÒÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½idï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 	 */
 	@Override
 	public User queryUserById(String userId) {
@@ -91,7 +91,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	/**
-	 * ¸ù¾ÝÓÃ»§IdÉ¾³ýÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½IdÉ¾ï¿½ï¿½ï¿½Ã»ï¿½
 	 */
 	@Override
 	public boolean deleteById(String userId) {
@@ -114,7 +114,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	/**
-	 * ¸üÐÂÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 	 */
 	@Override
 	public User update(User user) {

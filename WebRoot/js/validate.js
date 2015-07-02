@@ -14,17 +14,3 @@
 			}
 			document.getElementById("checkCode").innerHTML = code;
 		}
-		function validate () {
-			var inputCode = document.getElementById("code").value.toUpperCase();
-			if(inputCode.length <=0) {   
-				alert("请输入验证码！");   
-				return false;
-			}else if(inputCode != code ){   
-				alert("验证码输入错误！");   
-				createCode();   
-				return false;
-			}else {  
-				alert("验证码通过！");   
-				return true;
-			}
-		}

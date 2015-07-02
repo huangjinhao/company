@@ -25,6 +25,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="<%=basePath%>easyuiJs/jquery.easyui.min.js" type="text/javascript"></script>
     <script src="<%=basePath%>easyuiJs/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
   	<script src="<%=basePath%>js/validate.js" type="text/javascript" ></script>
+  
+  	<script type="text/javascript">
+  		$(function(){
+			$(".sub").click(function(){
+				$(".sub").attr("action", "<%=basePath%>login.action");
+			});
+			$(".regoster_sub").click(function(){
+				
+			});
+		});
+  	</script>
   </head>
   
   <body onload="createCode();">
@@ -46,14 +57,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 			<div id="login_content">
 				<div class="loginForm">
-					<form action="#">
+					<form action="login.action" method="post">
 						<p>
-							<label>用户名：</label>
-							<input id="userName" class="easyui-validatebox" type="text" size="20" name="name" required="true"></input>
+							<label>账号：</label>
+							<input id="userName" class="easyui-validatebox" type="text" size="20" name="user.userId" required="true"></input>
 						</p>
 						<p>
 							<label>密码：</label>
-							<input id="psw"  class="easyui-validatebox" type="text" name="psw"  size="20" required="true"></input>
+							<input id="psw"  class="easyui-validatebox" type="text" name="user.password"  size="20" required="true"></input>
 						</p>
 						<p>
 							<label>验证码：</label>
@@ -62,12 +73,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span id="checkCode" onclick="createCode();"></span>
   							<input type="button" class="btnCheck" id="gotoCheck"  value="验证"  onclick="validate();" style="width:40px; height:25px; color:#39F;"/>
 						</p>
-						<div class="login_bar" >
+						<div class="login_bar">
 							<input class="sub" type="submit" value=" " />
+							<a href="<%=basePath %>jsp/register.jsp"><img style="display: inline;" alt="作废" src="<%=basePath %>images/login_sub.png"></a>
 						</div>
-						<div class="zhuce_bar">
-							<input class="sub" type="submit" value=" " />
-						</div>
+						
 					</form>
 				</div>
 				<div class="login_banner"><img src="<%=basePath%>images/login_banner.jpg" /></div>
