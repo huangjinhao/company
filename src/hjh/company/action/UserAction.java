@@ -2,6 +2,7 @@ package hjh.company.action;
 
 import hjh.company.domain.Role;
 import hjh.company.domain.User;
+import hjh.company.domain.UserRole;
 import hjh.company.service.UserService;
 
 import java.util.HashMap;
@@ -188,7 +189,7 @@ public class UserAction extends ActionSupport {
 			userMap.put("loginStatus","0");
 			return LOGIN;
 		}
-		List<User> users = userService.queryUsersByRole(user);
+		List<UserRole> users = userService.queryUsersByRole(user);
         if(users == null){
 			userMap.put("queryByRoleStatus","0");
         	return ERROR;
@@ -205,7 +206,7 @@ public class UserAction extends ActionSupport {
 			return LOGIN;
 		}
 		
-		List<User> users = userService.queryAllUsers();
+		List<UserRole> users = userService.queryAllUsers();
         if(users == null){
 			userMap.put("queryByRoleStatus","0");
         	return ERROR;

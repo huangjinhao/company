@@ -1,13 +1,9 @@
 package hjh.test;
 
-import static org.junit.Assert.*;
-
-import java.util.List;
-
 import hjh.company.daoimpl.UserDAOImpl;
 import hjh.company.domain.User;
 
-import net.sf.json.JSONObject;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -80,9 +76,9 @@ public class UserDAOImplTest2 {
 	public void testQueryAll(){
 		List<User> users = userDAOImpl.queryAllUsers();
 		for(int i = 0; i < users.size();i++){
-			JSONObject jsonObject = new JSONObject();
-			jsonObject.accumulate("user", users.get(i));
-			System.out.println(jsonObject.toString());
+			//JSONObject jsonObject = new JSONObject();
+			//jsonObject.accumulate("user", users.get(i));
+			//System.out.println(jsonObject.toString());
 		}
 	}
 }

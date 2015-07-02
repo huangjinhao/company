@@ -1,19 +1,17 @@
 package hjh.company.daoimpl;
 
+import hjh.company.dao.UserDAO;
+import hjh.company.domain.Role;
+import hjh.company.domain.User;
+
 import java.util.List;
 import java.util.Set;
-
-import net.sf.json.JSONObject;
 
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import hjh.company.dao.UserDAO;
-import hjh.company.domain.Role;
-import hjh.company.domain.User;
 
 public class UserDAOImpl implements UserDAO {
 	private SessionFactory sessionFactory;

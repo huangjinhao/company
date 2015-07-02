@@ -1,9 +1,11 @@
 package hjh.company.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import hjh.company.dao.UserDAO;
 import hjh.company.domain.User;
+import hjh.company.domain.UserRole;
 import hjh.company.service.UserService;
 
 public class UserServiceImpl implements UserService {
@@ -52,13 +54,29 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> queryUsersByRole(User user) {
-		return userDAO.queryUsersByRole(user);
+	public List<UserRole> queryUsersByRole(User user) {
+		List<User> users =  userDAO.queryUsersByRole(user);
+		if(users == null) return null;
+		List<UserRole> userRoles = new ArrayList<UserRole>();
+		for(int i = 0; i < users.size();i++){
+			UserRole userRole = new UserRole(users.get(i));
+			userRoles.add(userRole);
+		}
+		
+		return userRoles;
 	}
 
 	@Override
-	public List<User> queryAllUsers() {
-		return userDAO.queryAllUsers();
+	public 	List<UserRole> queryAllUsers() {
+		List<User> users = userDAO.queryAllUsers();
+		if(users == null) return null;
+		List<UserRole> userRoles = new ArrayList<UserRole>();
+		for(int i = 0; i < users.size();i++){
+			UserRole userRole = new UserRole(users.get(i));
+			userRoles.add(userRole);
+		}
+		
+		return userRoles;
 	}
 
 }
