@@ -10,9 +10,8 @@
 	<package name="user" extends="json-default">
 		
 		<action name="register" class="userAction" method="register">
-			<result type="json">
-				<param name="root">userMap</param>
-			</result>
+			<result name="success">/.jsp</result>
+			<result name="login">/.jsp</result>
 		</action>
 		
 		<action name="login" class="userAction" method="login">

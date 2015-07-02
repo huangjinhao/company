@@ -3,6 +3,8 @@ package hjh.company.daoimpl;
 import java.util.List;
 import java.util.Set;
 
+import net.sf.json.JSONObject;
+
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -187,7 +189,7 @@ public class UserDAOImpl implements UserDAO {
 				Set<Role> roles = user.getRoles();
 				roles.iterator().next().getAuthorities().clear();
 			}
-			tx.commit();	
+			tx.commit();
 			return users;
 		} catch (Exception e) {
 			if(tx != null) tx.rollback();
