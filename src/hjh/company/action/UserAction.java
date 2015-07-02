@@ -99,7 +99,7 @@ public class UserAction extends ActionSupport {
 		//登陆成功
 		ActionContext ac = ActionContext.getContext();
 		ac.getSession().put("loginUser",fromDBUser);
-        nextPage = "success";
+        nextPage = "main1001_1";
 		return SUCCESS;
 	}
 	
@@ -207,6 +207,7 @@ public class UserAction extends ActionSupport {
         
 		userMap.put("queryAllStatus","1");
 		userMap.put("users",users);
+		System.out.println("queryall ==========="+users);
         return SUCCESS;
 	}
 	
