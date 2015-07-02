@@ -1,9 +1,8 @@
 package hjh.company.action;
 
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
-
-import org.apache.struts2.ServletActionContext;
+import java.util.Map;
 
 import hjh.company.domain.Role;
 import hjh.company.domain.User;
@@ -16,29 +15,22 @@ public class UserAction extends ActionSupport {
 	private User user = new User();
 	private User fromDBUser;
 	private UserService userService;
-	List<User> users;
-//	private String nextPage;
 	
-   
-//	public String getNextPage() {
-//		return nextPage;
-//	}
-//
-//	public void setNextPage(String nextPage) {
-//		this.nextPage = nextPage;
-//	}
+	private Map<String,Object> userMap = new HashMap<String,Object>();
+	
+	
+	public Map<String, Object> getUserMap() {
+		return userMap;
+	}
+
+	public void setUserMap(Map<String, Object> userMap) {
+		this.userMap = userMap;
+	}
 
 	public User getFromDBUser() {
 		return fromDBUser;
 	}
 
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
 
 	public void setFromDBUser(User fromDBUser) {
 		this.fromDBUser = fromDBUser;
@@ -60,78 +52,134 @@ public class UserAction extends ActionSupport {
 		this.user = user;
 	}
   /**
-   * ×¢²áÓÃ»§
+   * æ³¨å†Œç”¨æˆ·
    * @return
    * @throws Exception
    */
 	public String register() throws Exception{
+		if(isLogin()){
+			//åˆ¤æ–­æ˜¯å¦å·²ç»ç™»é™†
+			userMap.put("registeStatus","0");
+			return LOGIN;
+		}
+		
 		fromDBUser = userService.create(user);
-		if(fromDBUser == null) return LOGIN;
-		System.out.println(fromDBUser);
+		if(fromDBUser == null) {
+			//è¡¨ç¤ºå·²ç»æ³¨å†Œæˆ–è€…ç³»ç»Ÿæ•…éšœ
+			userMap.put("registStatus","1");
+			return LOGIN;
+		}
+		//æ³¨å†ŒæˆåŠŸ
+		userMap.put("registStatus","2");
 		return SUCCESS;
 	}
 	/**
-	 * µÇÂ½ÓÃ»§
+	 * ç™»é™†ç”¨æˆ·
 	 * @return
 	 * @throws Exception
 	 */
 	public String login() throws Exception{
-		fromDBUser = userService.login(user);
-		if(fromDBUser == null) return LOGIN;
+		if(isLogin()){
+			//åˆ¤æ–­æ˜¯å¦å·²ç»ç™»é™†
+			userMap.put("loginStatus","-1");
+			return LOGIN;
+		}
 		
+		fromDBUser = userService.login(user);
+		if(fromDBUser == null){
+			//ç™»é™†å¤±è´¥
+			userMap.put("loginStatus","0");
+			return LOGIN;
+		}
+		//ç™»é™†æˆåŠŸ
 		ActionContext ac = ActionContext.getContext();
 		ac.getSession().put("loginUser",fromDBUser);
-		
-//		forwardTo(fromDBUser);
+		userMap.put("loginStatus","1");
+        userMap.put("options", fromDBUser);
 		return SUCCESS;
 	}
 	/**
-	 * ²éÑ¯¸öÈËĞÅÏ¢
+	 * æŸ¥è¯¢ä¸ªäººä¿¡æ¯
 	 * @return
 	 * @throws Exception
 	 */
 	public String querySelfInfo() throws Exception{
-		if(!isLogin()) return LOGIN;
+		if(!isLogin()){
+			userMap.put("loginStatus","0");
+			return LOGIN;
+		}
 		
 		fromDBUser = userService.queryUserById(user.getUserId());
 		
-		if(fromDBUser == null) return ERROR;
-		System.out.println(fromDBUser);
+		if(fromDBUser == null){
+			userMap.put("queryStatus","0");
+			return ERROR;
+		}
+		
+		userMap.put("queryStatus","0");
+		userMap.put("infos", fromDBUser);
 		return SUCCESS;
 	}
 	/**
-	 * ¸üĞÂÓÃ»§¸öÈËĞÅÏ¢
+	 * æ›´æ–°ç”¨æˆ·ä¸ªäººä¿¡æ¯
 	 * @return
 	 * @throws Exception
 	 */
 	public String updateSelfInfo() throws Exception{
-		if(!isLogin()) return LOGIN;
+		if(!isLogin()){
+			userMap.put("loginStatus",0);
+			return LOGIN;
+		}
 
 		fromDBUser = userService.update(user);
 		
-		if(fromDBUser == null) return ERROR;
-		System.out.println(fromDBUser);
+		if(fromDBUser == null){
+			userMap.put("updateStatus","0");
+			return ERROR;
+		}
+		
+		userMap.put("updateStatus","1");
+		userMap.put("afterUpdateInfos",fromDBUser);
+
 		return SUCCESS;
 	}
 	
 	//*****************************************************
-	//ÒÔÏÂÊÇ¹ÜÀíÔ±ÌØÓĞÈ¨ÏŞ
+	//ä»¥ä¸‹æ˜¯ç®¡ç†å‘˜ç‰¹æœ‰æƒé™
 	public String delete() throws Exception{
-		if(!isManager()) return LOGIN;
+		if(!isManager()){
+			userMap.put("loginStatus","0");
+			return LOGIN;
+		}
+		
 		boolean result = userService.deleteById(user.getUserId());
-		if(result) return SUCCESS;
+		if(result){
+			userMap.put("deleteStatus","1");
+			return SUCCESS;
+		}
+		
+		userMap.put("deleteStatus","0");
 		return ERROR;
 	}
 	
 	public String queryByRole() throws Exception{
-		if(!isManager()) return LOGIN;
-		users = userService.queryUsersByRole(user);
-        if(users == null) return ERROR;
+		if(!isManager()){
+			userMap.put("loginStatus","0");
+			return LOGIN;
+		}
+		List<User> users = userService.queryUsersByRole(user);
+        if(users == null){
+			userMap.put("queryByRoleStatus","0");
+        	return ERROR;
+        }
+        
+		userMap.put("queryByRoleStatus","1");
+		userMap.put("users",users);
         return SUCCESS;
 	}
 	
 	/**
-	 * ÅĞ¶Ïµ±Ç°ÊÇ·ñÓĞÓÃ»§µÇÂ½
+	 * åˆ¤æ–­å½“å‰æ˜¯å¦æœ‰ç”¨æˆ·ç™»é™†
 	 * @return
 	 */
 	public boolean isLogin(){
@@ -142,7 +190,7 @@ public class UserAction extends ActionSupport {
 	}
 	
 	/**
-	 * ÅĞ¶Ïµ±Ç°ÓÃ»§ÊÇ·ñÎª¹ÜÀíÔ±½ÇÉ«
+	 * åˆ¤æ–­å½“å‰ç”¨æˆ·æ˜¯å¦ä¸ºç®¡ç†å‘˜è§’è‰²
 	 */
 	
 	public boolean isManager(){
