@@ -95,33 +95,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            		<ul>
 	            			<li>
 	            				<span>
-	            					<a class="treeA" target="mainFrame" href="<%=basePath%>jsp/system.jsp">公司制度</a>
-	            				</span>
-	            			</li>
-	            			<li>
-	            				<span>
-	            					<a class="treeA" target="mainFrame" href="#">公司信息</a>
+	            					<a class="treeA" target="mainFrame" href="<%=basePath%>jsp/system.jsp">个人信息</a>
 	            				</span>
 	            			</li>
 	            		</ul>
             		</li>
-            		<br/>
-            		<li>
-            			<span>公司部门</span>
-	            		<ul>
-	            			<li>
-	            				<span>
-	            					<a class="treeA" target="mainFrame" href="#">公司制度</a>
-	            				</span>
-	            			</li>
-	            			<li>
-	            				<span>
-	            					<a class="treeA" target="mainFrame" href="#">公司信息</a>
-	            				</span>
-	            			</li>
-	            		</ul>
-            		</li>
-            		
             	</ul>
             </div>
             <div title="部门管理" style="padding: 10px;" icon="icon-edit">
