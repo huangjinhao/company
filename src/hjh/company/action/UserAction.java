@@ -63,19 +63,24 @@ public class UserAction extends ActionSupport {
 		ActionContext ac = ActionContext.getContext();
 		ac.getSession().put("loginUser",fromDBUser);
 		
-		forwardTo(fromDBUser);
+//		forwardTo(fromDBUser);
 		return SUCCESS;
 	}
 	
-	private String forwardTo(User user){
-		Role role = user.getRoles().iterator().next();
-		String roleName = role.getRoleName();
-		if("管理员".equals(roleName)){
-			nextPage = "manager";
-		}
-		if("不明身份".equals(roleName)){
-			nextPage = "unknow";
-		}
-		return nextPage;
-	}
+//	public String querySelfInfo() throws Exception{
+//		
+//	}
+	
+	
+//	private String forwardTo(User user){
+//		Role role = user.getRoles().iterator().next();
+//		String roleName = role.getRoleName();
+//		if("管理员".equals(roleName)){
+//			nextPage = "manager";
+//		}
+//		if("不明身份".equals(roleName)){
+//			nextPage = "unknow";
+//		}
+//		return nextPage;
+//	}
 }
