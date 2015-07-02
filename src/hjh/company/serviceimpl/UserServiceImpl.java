@@ -1,5 +1,7 @@
 package hjh.company.serviceimpl;
 
+import java.util.List;
+
 import hjh.company.dao.UserDAO;
 import hjh.company.domain.User;
 import hjh.company.service.UserService;
@@ -42,14 +44,16 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 		User newUser = queryUserById(user.getUserId());
-		if(newUser == null){
-			return null;
-		
-		}
+		if(newUser == null) return null;
 		if(user.getPassword().equals(newUser.getPassword())){
 			return newUser;
 		}
 		return null;
+	}
+
+	@Override
+	public List<User> queryUsersByRole(User user) {
+		return userDAO.queryUsersByRole(user);
 	}
 
 }

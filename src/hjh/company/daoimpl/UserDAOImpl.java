@@ -1,5 +1,8 @@
 package hjh.company.daoimpl;
 
+import java.util.List;
+
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -137,6 +140,29 @@ public class UserDAOImpl implements UserDAO {
 			session.saveOrUpdate(oldUser);
 			tx.commit();
 			return oldUser;
+		} catch (Exception e) {
+			if(tx != null) tx.rollback();
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}	
+	}
+
+	/**
+	 * 管理员根据角色进行查找
+	 */
+	@Override
+	public List<User> queryUsersByRole(User user) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+        List<User> users = null;
+		try {
+			SQLQuery sqlQuery = session.createSQLQuery("select * from user where userId in (select userId from user_role where roleId=" + 
+		              user.getRoles().iterator().next().getRoleId() +")");
+			users = sqlQuery.list();
+			tx.commit();
+			return users;
 		} catch (Exception e) {
 			if(tx != null) tx.rollback();
 			e.printStackTrace();

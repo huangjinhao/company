@@ -11,8 +11,12 @@
 		<action name="register" class="userAction" method="register">
 		</action>
 		<action name="login" class="userAction" method="login">
-		   <result name="success">/${nextPage}.jsp</result>
+		   <result name="success">/.jsp</result>
 		   <result name="login">/login.jsp</result>
+		</action>
+		<action name="queryselfinfo" class="userAction" method="querySelfInfo">
+		</action>
+		<action name="updateselfinfo" class="userAction" method="updateSelfInfo">
 		</action>
 	</package>
 </struts>
