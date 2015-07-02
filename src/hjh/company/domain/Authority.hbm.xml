@@ -11,7 +11,7 @@
 		<property name="authorityName" column="authorityName" type="string"></property>
 		<property name="url" column="url" type="string"></property>
 
-        <set name="roles" table="role_authority" cascade="all" inverse="true" lazy="false">
+        <set name="roles" table="role_authority" cascade="none" inverse="true" lazy="false">
             <key column="authorityId"></key>
             <many-to-many class="hjh.company.domain.Role" column="roleId"></many-to-many>
         </set>

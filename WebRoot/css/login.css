@@ -33,8 +33,12 @@ body { margin:0; text-align:center; background:#FFF url(../images/login_bg.png) 
 .loginForm input { padding:3px 2px; border-style:solid; border-width:1px; border-color:#80a5c4;}
 .loginForm #userName {}
 .loginForm #code { float:left; margin-right:5px;}
+
 .login_bar { padding-left:70px;}
-.login_bar .sub { display:block; width:75px; height:30px; border:none; background:url(../images/login_sub.png) no-repeat; cursor:pointer;}
+.login_bar .sub { display:block; width:65px; height:30px; border:none; background:url(../images/login_sub.png) no-repeat; cursor:pointer;}
+
+.zhuce_bar { padding-left:160px;}
+.zhuce_bar .sub { display:block; width:65px; height:30px; border:none; background:url(../images/login_sub.png) no-repeat; cursor:pointer;}
 
 .login_banner { display:block; height:270px;}
 .login_main { display:block; height:200px; padding-right:40px; background:url(../images/login_content_bg.png) no-repeat top;}

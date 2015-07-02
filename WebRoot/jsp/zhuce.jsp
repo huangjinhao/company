@@ -9,33 +9,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>用户注册页面</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	
+	
+	<link href="<%=basePath%>easyuiJs/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>easyuiJs/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script src="<%=basePath%>easyuiJs/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="<%=basePath%>easyuiJs/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="<%=basePath%>easyuiJs/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+  	<script src="<%=basePath%>js/validate.js" type="text/javascript" ></script>
+
   </head>
   
-  <body>
-    <form action="login.action">
-    <input type="text" name="user.userId"/>
-    <input type="text" name="user.password"/>
-    <input type="submit" value="submit">
-    </form>
+  <body style="padding: 0">   
+
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

@@ -34,6 +34,13 @@
        <property name="sessionFactory" ref="sessionFactory"></property>
   </bean>
  
+ <bean id="userServiceImpl" class="hjh.company.serviceimpl.UserServiceImpl">
+      <property name="userDAO" ref="userDAOImpl"></property>
+ </bean>
+ 
+ <bean id="userAction" class="hjh.company.action.UserAction">
+     <property name="userService" ref="userServiceImpl"></property>
+ </bean>
 </beans>
 
 

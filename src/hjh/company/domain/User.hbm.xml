@@ -17,7 +17,7 @@
 		<property name="email" column="email" type="string"></property>
 		
 
-        <set name="roles" table="user_role" cascade="all" inverse="true" lazy="false">
+        <set name="roles" table="user_role" cascade="none" inverse="false" lazy="false">
             <key column="userId"></key>
             <many-to-many class="hjh.company.domain.Role" column="roleId"></many-to-many>
         </set>

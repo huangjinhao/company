@@ -7,7 +7,12 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	<constant name="struts.devMode" value="false" />
 	<include file="struts-default.xml" />  
-	<package name="hibernate-Criteria" extends="struts-default">
-		
+	<package name="user" extends="struts-default">
+		<action name="register" class="userAction" method="register">
+		</action>
+		<action name="login" class="userAction" method="login">
+		   <result name="success">/${nextPage}.jsp</result>
+		   <result name="login">/login.jsp</result>
+		</action>
 	</package>
 </struts>

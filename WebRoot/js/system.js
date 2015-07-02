@@ -24,7 +24,7 @@ $(function () { //$(function(){ })则是用来在DOM加载完成之后运行\执
         title: '员工管理', 		//列标题
         iconCls: 'icon-save',	//设置一个16x16图标的CSS类ID显示在面板左上角
         methord: 'get',			//使用HTTP的哪一种方法读取内容页。可用值：'get','post'。（该属性自1.3.6版开始可用）
-        url: 'employee_queryAllStu.action', //一个URL从远程站点请求数据
+        url: 'employee_queryAllEmp.action', //一个URL从远程站点请求数据
         sortName: 'name',  //定义哪些列可以进行排序
         sortOrder: 'desc', //定义列的排序顺序，只能是'asc'或'desc'
         idField: 'empId', //指明哪一个字段是标识字段

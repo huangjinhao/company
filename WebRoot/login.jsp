@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>ç™»å½•é¡µé¢</title>
+    <title>µÇÂ¼Ò³Ãæ</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -35,9 +35,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="login_headerContent">
 				<div class="navList">
 					<ul>
-						<li><a href="#">è®¾ä¸ºé¦–é¡µ</a></li>
-						<li><a href="http://bbs.dwzjs.com">åé¦ˆ</a></li>
-						<li><a href="doc/dwz-user-guide.pdf" target="_blank">å¸®åŠ©</a></li>
+						<li><a href="#">ÉèÎªÊ×Ò³</a></li>
+						<li><a href="http://bbs.dwzjs.com">·´À¡</a></li>
+						<li><a href="doc/dwz-user-guide.pdf" target="_blank">°ïÖú</a></li>
 					</ul>
 				</div>
 				<h2 class="login_title"><img src="<%=basePath%>images/login_title.png" /></h2>
@@ -47,19 +47,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="loginForm">
 					<form action="index.html">
 						<p>
-							<label>ç”¨æˆ·åï¼š</label>
+							<label>ÓÃ»§Ãû£º</label>
 							<input id="userName" class="easyui-validatebox" type="text" size="20" name="name" required="true"></input>
 						</p>
 						<p>
-							<label>å¯†ç ï¼š</label>
+							<label>ÃÜÂë£º</label>
 							<input id="psw"  class="easyui-validatebox" type="text" name="psw"  size="20" required="true"></input>
 						</p>
 						<p>
-							<label>éªŒè¯ç ï¼š</label>
+							<label>ÑéÖ¤Âë£º</label>
 							<input id="code" type="text" style="width: 40px;" required="true"  class="easyui-validatebox" size="5" />
 							<span style="width=75;height=24;"></span>
 							<span id="checkCode" onclick="createCode();"></span>
-  							<input type="button" class="btnCheck" id="gotoCheck"  value="éªŒè¯"  onclick="validate();" style="width:40px; height:25px; color:#39F;"/>
+  							<input type="button" class="btnCheck" id="gotoCheck"  value="ÑéÖ¤"  onclick="validate();" style="width:40px; height:25px; color:#39F;"/>
 						</p>
 						<div class="login_bar">
 							<input class="sub" type="submit" value=" " />
@@ -69,15 +69,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="login_banner"><img src="<%=basePath%>images/login_banner.jpg" /></div>
 				<div class="login_main">
 					<ul class="helpList">
-						<li><a href="#">ä¸‹è½½é©±åŠ¨ç¨‹åº</a></li>
-						<li><a href="#">å¦‚ä½•å®‰è£…å¯†é’¥é©±åŠ¨ç¨‹åºï¼Ÿ</a></li>
-						<li><a href="#">å¿˜è®°å¯†ç æ€ä¹ˆåŠï¼Ÿ</a></li>
-						<li><a href="#">ä¸ºä»€ä¹ˆç™»å½•å¤±è´¥ï¼Ÿ</a></li>
+						<li><a href="#">ÏÂÔØÇı¶¯³ÌĞò</a></li>
+						<li><a href="#">ÈçºÎ°²×°ÃÜÔ¿Çı¶¯³ÌĞò£¿</a></li>
+						<li><a href="#">Íü¼ÇÃÜÂëÔõÃ´°ì£¿</a></li>
+						<li><a href="#">ÎªÊ²Ã´µÇÂ¼Ê§°Ü£¿</a></li>
 					</ul>
 					<div class="login_inner">
-						<p>æ‚¨å¯ä»¥ä½¿ç”¨ ç½‘æ˜“ç½‘ç›˜ ï¼Œéšæ—¶å­˜ï¼Œéšåœ°å–</p>
-						<p>æ‚¨è¿˜å¯ä»¥ä½¿ç”¨ é—ªç”µé‚® åœ¨æ¡Œé¢éšæ—¶æé†’é‚®ä»¶åˆ°è¾¾ï¼Œå¿«é€Ÿæ”¶å‘é‚®ä»¶ã€‚</p>
-						<p>åœ¨ ç™¾å®ç®± é‡Œæ‚¨å¯ä»¥æŸ¥æ˜Ÿåº§ï¼Œè®¢æœºç¥¨ï¼Œçœ‹å°è¯´ï¼Œå­¦åšèœâ€¦</p>
+						<p>Äú¿ÉÒÔÊ¹ÓÃ ÍøÒ×ÍøÅÌ £¬ËæÊ±´æ£¬ËæµØÈ¡</p>
+						<p>Äú»¹¿ÉÒÔÊ¹ÓÃ ÉÁµçÓÊ ÔÚ×ÀÃæËæÊ±ÌáĞÑÓÊ¼şµ½´ï£¬¿ìËÙÊÕ·¢ÓÊ¼ş¡£</p>
+						<p>ÔÚ °Ù±¦Ïä ÀïÄú¿ÉÒÔ²éĞÇ×ù£¬¶©»úÆ±£¬¿´Ğ¡Ëµ£¬Ñ§×ö²Ë¡­</p>
 					</div>
 				</div>
 			</div>

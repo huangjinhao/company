@@ -18,7 +18,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	<link href="<%=basePath%>css/login.css" rel="stylesheet" type="text/css" />
 	<link href="<%=basePath%>css/validate.css" rel="stylesheet" type="text/css">
-	
 	<link href="<%=basePath%>easyuiJs/themes/default/easyui.css" rel="stylesheet" type="text/css" />
     <link href="<%=basePath%>easyuiJs/themes/icon.css" rel="stylesheet" type="text/css" />
     <script src="<%=basePath%>easyuiJs/jquery-1.4.2.min.js" type="text/javascript"></script>
@@ -46,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 			<div id="login_content">
 				<div class="loginForm">
-					<form action="#">
+					<form action="index.html">
 						<p>
 							<label>用户名：</label>
 							<input id="userName" class="easyui-validatebox" type="text" size="20" name="name" required="true"></input>
@@ -62,10 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span id="checkCode" onclick="createCode();"></span>
   							<input type="button" class="btnCheck" id="gotoCheck"  value="验证"  onclick="validate();" style="width:40px; height:25px; color:#39F;"/>
 						</p>
-						<div class="login_bar" >
-							<input class="sub" type="submit" value=" " />
-						</div>
-						<div class="zhuce_bar">
+						<div class="login_bar">
 							<input class="sub" type="submit" value=" " />
 						</div>
 					</form>
