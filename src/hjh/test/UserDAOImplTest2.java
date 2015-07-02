@@ -1,6 +1,9 @@
 package hjh.test;
 
 import static org.junit.Assert.*;
+
+import java.util.List;
+
 import hjh.company.daoimpl.UserDAOImpl;
 import hjh.company.domain.User;
 
@@ -67,9 +70,16 @@ public class UserDAOImplTest2 {
 		this.user = userDAOImpl.update(user);
 	}
 	
-	@Test
+//	@Test
 	public void testQuery(){
 		this.user = userDAOImpl.queryUserById("1234");
+	}
+	@Test
+	public void testQueryAll(){
+		List<User> users = userDAOImpl.queryAllUsers();
+		for(int i = 0; i < users.size();i++){
+			System.out.println(users.get(i));
+		}
 	}
 }
 

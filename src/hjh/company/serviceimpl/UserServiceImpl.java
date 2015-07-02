@@ -56,4 +56,9 @@ public class UserServiceImpl implements UserService {
 		return userDAO.queryUsersByRole(user);
 	}
 
+	@Override
+	public List<User> queryAllUsers() {
+		return userDAO.queryAllUsers();
+	}
+
 }

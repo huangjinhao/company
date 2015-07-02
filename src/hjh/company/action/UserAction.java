@@ -59,18 +59,15 @@ public class UserAction extends ActionSupport {
 	public String register() throws Exception{
 		if(isLogin()){
 			//判断是否已经登陆
-			userMap.put("registeStatus","0");
 			return LOGIN;
 		}
 		
 		fromDBUser = userService.create(user);
 		if(fromDBUser == null) {
-			//表示已经注册或者系统故障
-			userMap.put("registStatus","1");
+			 //表示已经注册或者系统故障
 			return LOGIN;
 		}
 		//注册成功
-		userMap.put("registStatus","2");
 		return SUCCESS;
 	}
 	/**
@@ -79,27 +76,30 @@ public class UserAction extends ActionSupport {
 	 * @throws Exception
 	 */
 	public String login() throws Exception{
-		if(isLogin()){
+		if(isLogin())
 			//判断是否已经登陆
-			userMap.put("loginStatus","-1");
 			return LOGIN;
-		}
 		
 		fromDBUser = userService.login(user);
 		if(fromDBUser == null){
 			//登陆失败
-			userMap.put("loginStatus","0");
 			return LOGIN;
 		}
 		//登陆成功
 		ActionContext ac = ActionContext.getContext();
 		ac.getSession().put("loginUser",fromDBUser);
-		userMap.put("loginStatus","1");
-        userMap.put("options", fromDBUser);
 		return SUCCESS;
 	}
 	
-	
+	public String quit() throws Exception {
+		//没有已经登陆的用户
+		if(!isLogin()) return null;
+        
+		ActionContext ac = ActionContext.getContext();
+//		ac.getSession().put("loginUser",fromDBUser);
+		ac.getSession().remove("loginUser");
+		return SUCCESS;
+	}
 	
 	/**
 	 * 查询个人信息
@@ -177,6 +177,23 @@ public class UserAction extends ActionSupport {
         }
         
 		userMap.put("queryByRoleStatus","1");
+		userMap.put("users",users);
+        return SUCCESS;
+	}
+	
+	public String queryAll() throws Exception{
+		if(!isManager()){
+			userMap.put("loginStatus","0");
+			return LOGIN;
+		}
+		
+		List<User> users = userService.queryAllUsers();
+        if(users == null){
+			userMap.put("queryByRoleStatus","0");
+        	return ERROR;
+        }
+        
+		userMap.put("queryAllStatus","1");
 		userMap.put("users",users);
         return SUCCESS;
 	}

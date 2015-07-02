@@ -1,7 +1,9 @@
 package hjh.company.daoimpl;
 
 import java.util.List;
+import java.util.Set;
 
+import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -150,7 +152,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	/**
-	 * ¹ÜÀíÔ±¸ù¾Ý½ÇÉ«½øÐÐ²éÕÒ
+	 * ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ý½ï¿½É«ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½
 	 */
 	@Override
 	public List<User> queryUsersByRole(User user) {
@@ -162,6 +164,30 @@ public class UserDAOImpl implements UserDAO {
 		              user.getRoles().iterator().next().getRoleId() +")");
 			users = sqlQuery.list();
 			tx.commit();
+			return users;
+		} catch (Exception e) {
+			if(tx != null) tx.rollback();
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}	
+	}
+
+	@Override
+	public List<User> queryAllUsers() {
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+        List<User> users = null;
+		try {
+			Query query = session.createQuery("from User");
+			users = query.list();
+			for(int i = 0; i < users.size();i++){
+				User user = users.get(i);
+				Set<Role> roles = user.getRoles();
+				roles.iterator().next().getAuthorities().clear();
+			}
+			tx.commit();	
 			return users;
 		} catch (Exception e) {
 			if(tx != null) tx.rollback();

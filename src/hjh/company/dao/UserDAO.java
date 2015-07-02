@@ -11,4 +11,5 @@ public interface UserDAO {
     public User update(User user);
     public User queryUserById(String userId); 
     public List<User> queryUsersByRole(User user);
+    public List<User> queryAllUsers();
 }
