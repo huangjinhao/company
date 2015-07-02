@@ -21,11 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <form action="login.action">
-    <input type="text" name="user.userId"/>
-    <input type="text" name="user.password"/>
-    <input type="submit" value="submit">
-    </form>
+    wwwwwwwwwwww
   </body>
 </html>
 

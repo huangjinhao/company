@@ -59,7 +59,6 @@ public class UserAction extends ActionSupport {
 	public String login() throws Exception{
 		fromDBUser = userService.login(user);
 		if(fromDBUser == null) return LOGIN;
-		
 		ActionContext ac = ActionContext.getContext();
 		ac.getSession().put("loginUser",fromDBUser);
 		
@@ -75,10 +74,10 @@ public class UserAction extends ActionSupport {
 //	private String forwardTo(User user){
 //		Role role = user.getRoles().iterator().next();
 //		String roleName = role.getRoleName();
-//		if("¹ÜÀíÔ±".equals(roleName)){
+//		if("ï¿½ï¿½ï¿½ï¿½Ô±".equals(roleName)){
 //			nextPage = "manager";
 //		}
-//		if("²»Ã÷Éí·Ý".equals(roleName)){
+//		if("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½".equals(roleName)){
 //			nextPage = "unknow";
 //		}
 //		return nextPage;
