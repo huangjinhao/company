@@ -6,39 +6,41 @@ import hjh.company.domain.User;
 
 public interface UserService {
 	/**
-	 * ×¢²áÓÃ»§
+	 * ×¢ï¿½ï¿½ï¿½Ã»ï¿½
 	 * @param user
 	 * @return
 	 */
     public User create(User user);
     /**
-     * É¾³ýÓÃ»§
+     * É¾ï¿½ï¿½ï¿½Ã»ï¿½
      * @param userId
      * @return
      */
     public boolean deleteById(String userId);
     /**
-     * ¸üÐÂÓÃ»§×ÊÁÏ
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
      * @param user
      * @return
      */
     public User update(User user);
     /**
-     * ²éÑ¯ÓÃ»§ÐÅÏ¢
+     * ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
      * @param userId
      * @return
      */
     public User queryUserById(String userId); 
     /**
-     * µÇÂ½
+     * ï¿½ï¿½Â½
      * @param user
      * @return user
      */
     public User login(User user);
     /**
-     * ¹ÜÀíÔ±¸ù¾Ý½ÇÉ«½øÐÐÄ£ºý²éÑ¯
+     * ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ý½ï¿½É«ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ñ¯
      * @param user
      * @return
      */
     public List<User> queryUsersByRole(User user);
+    
+    public List<User> queryAllUsers();
 }

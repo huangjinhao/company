@@ -6,12 +6,12 @@
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	<constant name="struts.devMode" value="false" />
-	<include file="struts-default.xml" />  
+	<include file="struts-default.xml" />
 	<package name="user" extends="json-default">
 		
 		<action name="register" class="userAction" method="register">
 			<result type="json">
-			    <param name="root">userMap</param>
+				<param name="root">userMap</param>
 			</result>
 		
 		</action>
@@ -21,8 +21,35 @@
 		   <result name="login">/jsp/userlogin.jsp</result>
 		</action>
 		<action name="queryselfinfo" class="userAction" method="querySelfInfo">
+			<result type="json">
+                <param name="root">userMap</param>
+			</result>
 		</action>
 		<action name="updateselfinfo" class="userAction" method="updateSelfInfo">
+		    <result type="json">
+				<param name="root">userMap</param>
+			</result>
+		</action>
+		
+		<action name="deleteUser" class="userAction" method="delete">
+			<result type="json">
+                <param name="root">userMap</param>
+			</result>
+		</action>
+		<action name="queryByRole" class="userAction" method="queryByRole">
+		    <result type="json">
+				<param name="root">userMap</param>
+			</result>
 		</action>
 	</package>
 </struts>
+
+
+
+
+
+
+
+
+
+
