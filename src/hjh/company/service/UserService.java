@@ -3,6 +3,7 @@ package hjh.company.service;
 import java.util.List;
 
 import hjh.company.domain.User;
+import hjh.company.domain.UserRole;
 
 public interface UserService {
 	/**
@@ -40,7 +41,7 @@ public interface UserService {
      * @param user
      * @return
      */
-    public List<User> queryUsersByRole(User user);
+    public List<UserRole> queryUsersByRole(User user);
     
-    public List<User> queryAllUsers();
+    public 	List<UserRole> queryAllUsers();
 }

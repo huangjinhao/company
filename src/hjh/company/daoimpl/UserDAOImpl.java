@@ -184,11 +184,6 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			Query query = session.createQuery("from User");
 			users = query.list();
-			for(int i = 0; i < users.size();i++){
-				User user = users.get(i);
-				Set<Role> roles = user.getRoles();
-				roles.iterator().next().getAuthorities().clear();
-			}
 			tx.commit();
 			return users;
 		} catch (Exception e) {

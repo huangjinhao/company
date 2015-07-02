@@ -6,6 +6,7 @@ import java.util.List;
 
 import hjh.company.daoimpl.UserDAOImpl;
 import hjh.company.domain.User;
+import hjh.company.domain.UserRole;
 
 import net.sf.json.JSONObject;
 
@@ -79,11 +80,12 @@ public class UserDAOImplTest2 {
 	@Test
 	public void testQueryAll(){
 		List<User> users = userDAOImpl.queryAllUsers();
-		for(int i = 0; i < users.size();i++){
-			JSONObject jsonObject = new JSONObject();
-			jsonObject.accumulate("user", users.get(i));
-			System.out.println(jsonObject.toString());
-		}
+		JSONObject jsonObject = jsonObject = new JSONObject();
+		for(int i = 0; i < users.size();i++)
+			jsonObject.accumulate("user", new UserRole(users.get(i)));
+		
+		System.out.println(jsonObject.toString());
+
 	}
 }
 
