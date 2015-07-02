@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		       padding:15px; color: white; font-size: 25px; ">
 		       		<span id="registerHeader">后台注册页面</span>
 		    </div>
-		    	<form id="form1" action="<%=basePath %>register.action" method="post" >   
+		    	<form id="form1" action="<%=basePath %>login.action" method="post" >   
 				    <div>   
 				        <label class="label">账&nbsp;&nbsp;号：</label> 
 				        <input class="easyui-validatebox" type="text" name="user.userId" required="true" />   
@@ -86,11 +86,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input class="sub" type="submit" value=" " />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<a href="<%=basePath %>jsp/userlogin.jsp"><img style="display: inline;" alt="作废" src="<%=basePath %>images/login_sub.png"></a>
 					</div>
-				    	
-				    	<!-- 
-							<a id="btn" href="<%=basePath %>register.action" class="easyui-linkbutton" iconCls = "icon-ok">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a id="btn" href="<%=basePath %>/jsp/userlogin.jsp" class="easyui-linkbutton" iconCls = "icon-cancel">取消</a> 
-						-->
 				</form>  
 		</div> 
 		

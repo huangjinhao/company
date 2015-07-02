@@ -90,7 +90,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="menu" class="easyui-accordion" fit="true" border="false">
             <div title="系统管理" style="overflow:auto; padding: 10px;" icon="icon-edit">
                 <ul class="easyui-tree">
-					<li>ww</li>            		
+            		<li>
+            			<span>公司部门</span>
+	            		<ul>
+	            			<li>
+	            				<span>
+	            					<a class="treeA" target="mainFrame" href="<%=basePath%>jsp/system.jsp">公司制度</a>
+	            				</span>
+	            			</li>
+	            			<li>
+	            				<span>
+	            					<a class="treeA" target="mainFrame" href="#">公司信息</a>
+	            				</span>
+	            			</li>
+	            		</ul>
+            		</li>
+            		<br/>
+            		<li>
+            			<span>公司部门</span>
+	            		<ul>
+	            			<li>
+	            				<span>
+	            					<a class="treeA" target="mainFrame" href="#">公司制度</a>
+	            				</span>
+	            			</li>
+	            			<li>
+	            				<span>
+	            					<a class="treeA" target="mainFrame" href="#">公司信息</a>
+	            				</span>
+	            			</li>
+	            		</ul>
+            		</li>
+            		
             	</ul>
             </div>
             <div title="部门管理" style="padding: 10px;" icon="icon-edit">

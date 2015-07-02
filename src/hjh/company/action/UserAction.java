@@ -18,7 +18,18 @@ public class UserAction extends ActionSupport {
 	
 	private Map<String,Object> userMap = new HashMap<String,Object>();
 	
+	private String nextPage;
 	
+	
+	
+	public String getNextPage() {
+		return nextPage;
+	}
+
+	public void setNextPage(String nextPage) {
+		this.nextPage = nextPage;
+	}
+
 	public Map<String, Object> getUserMap() {
 		return userMap;
 	}
@@ -64,7 +75,6 @@ public class UserAction extends ActionSupport {
 		
 		fromDBUser = userService.create(user);
 		if(fromDBUser == null) {
-			 //表示已经注册或者系统故障
 			return LOGIN;
 		}
 		//注册成功
@@ -88,6 +98,7 @@ public class UserAction extends ActionSupport {
 		//登陆成功
 		ActionContext ac = ActionContext.getContext();
 		ac.getSession().put("loginUser",fromDBUser);
+        nextPage = "success";
 		return SUCCESS;
 	}
 	
