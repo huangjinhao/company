@@ -1,5 +1,7 @@
 package hjh.company.service;
 
+import java.util.List;
+
 import hjh.company.domain.User;
 
 public interface UserService {
@@ -33,4 +35,10 @@ public interface UserService {
      * @return user
      */
     public User login(User user);
+    /**
+     * 管理员根据角色进行模糊查询
+     * @param user
+     * @return
+     */
+    public List<User> queryUsersByRole(User user);
 }

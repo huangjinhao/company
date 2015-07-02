@@ -7,16 +7,34 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	<constant name="struts.devMode" value="false" />
 	<include file="struts-default.xml" />  
+<<<<<<< HEAD
 	<package name="user" extends="struts-default">
 		
 		<action name="register" class="userAction" method="register">
 			<result name="success">/jsp/userlogin.jsp</result>
 			<result name="login">/jsp/register.jsp</result>
+=======
+	<package name="user" extends="json-default">
+		<action name="register" class="userAction" method="register">
+			<result type="json">
+			    <param name="root">userMap</param>
+			</result>
+		
+>>>>>>> 66a60b5d1a19e6bdd1a565197346b985cad7bbf6
 		</action>
 		
 		<action name="login" class="userAction" method="login">
+<<<<<<< HEAD
 		   <result name="success">/jsp/main1001_1.jsp</result>
 		   <result name="login">/jsp/userlogin.jsp</result>
+=======
+		   <result name="success">/.jsp</result>
+		   <result name="login">/login.jsp</result>
+>>>>>>> 66a60b5d1a19e6bdd1a565197346b985cad7bbf6
+		</action>
+		<action name="queryselfinfo" class="userAction" method="querySelfInfo">
+		</action>
+		<action name="updateselfinfo" class="userAction" method="updateSelfInfo">
 		</action>
 	</package>
 </struts>
