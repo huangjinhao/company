@@ -98,6 +98,9 @@ public class UserAction extends ActionSupport {
         userMap.put("options", fromDBUser);
 		return SUCCESS;
 	}
+	
+	
+	
 	/**
 	 * 查询个人信息
 	 * @return

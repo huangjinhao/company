@@ -16,13 +16,8 @@
 		</action>
 		
 		<action name="login" class="userAction" method="login">
-<<<<<<< HEAD
-			<result name="success">dsa.jsp</result>
-			<result name="login">/login.jsp</result>
-=======
 		   <result name="success">/jsp/main1001_1.jsp</result>
 		   <result name="login">/jsp/userlogin.jsp</result>
->>>>>>> origin/master
 		</action>
 		<action name="queryselfinfo" class="userAction" method="querySelfInfo">
 			<result type="json">
